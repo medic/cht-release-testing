@@ -16,7 +16,8 @@ As functionality is added to the app we should be adding release tests to ensure
 
 Create a personal access token and name it token.json in this directory. 
 
-Run `node create_release_project.js --version <release_vers>`
+Run `node create_release_project.js --version <release_vers>` to create a new project versoin. 
+
 EX: `node create_release_project.js --version 3.3.0`
 
 This will generate a project in medic-release-testing repo. Once completed you should see the link to the project in the console. 
