@@ -14,7 +14,9 @@ As functionality is added to the app we should be adding release tests to ensure
 ## Generating a Project Board for Testing a Release
 
 
-Create a personal access token and name it token.json in this directory. 
+Create a github personal access token and name it token.json in this directory.
+
+Run `npm install`
 
 Run `node create_release_project.js --version <release_vers>` to create a new project versoin. 
 
@@ -26,4 +28,6 @@ EX: Project created at: https://github.com/medic/medic-release-testing/projects/
 
 ## Executing Test Cases
 
-Once the project is created all test cases should be in the TODO column. Drag to the In Progress column while working on them and then to done when it is completed. 
+* Once the project is created all test cases should be in the TODO column. 
+* Drag the test case you are working on to the In Progress column 
+* Drag the test case to done when completed. 
