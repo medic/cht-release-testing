@@ -14,11 +14,13 @@ fi
 if ! [ -e ".gdrive.secrets.json" ]
 then 
   echo "gdrive secrets file does not exist. It is required to get csvs for seeding"
+  echo "Medics secrets is in our password manager"
 fi
 
 if ! [ -e "csvs-on-google-drive.json" ]
 then 
   echo "csvs-on-google-drive.json file does not exist. It is required to get csvs for seeding"
+  echo "See details here https://git.io/fjtSf"
 fi
 
 medic-conf fetch-csvs-from-google-drive
