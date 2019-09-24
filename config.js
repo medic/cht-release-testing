@@ -32,6 +32,7 @@ module.exports = {
   repoName: 'medic-release-testing',
   owner: 'medic',
   labels: "Release Test",
+  excludeLabel: "Automated",
   columnNamesData: columnData,
   token: getToken(),
   headers: {

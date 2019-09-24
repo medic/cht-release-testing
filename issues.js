@@ -12,19 +12,25 @@ async function issues() {
     labels: config.labels,
     state: 'all'
   };
-  issues = []
+  issues = [];
 
   try {
-    var response =  await octokit.issues.listForRepo(data);
+    var response = await octokit.issues.listForRepo(data);
     issues.push.apply(issues, response.data);
-    while(octokit.hasNextPage(response)){
-      response = await octokit.getNextPage(response)
+    while (octokit.hasNextPage(response)) {
+      response = await octokit.getNextPage(response);
       issues.push.apply(issues, response.data);
     }
-    return issues;
-  } catch(err){
-    console.error("An error occured getting issues" + err.stack);
-  };
+    return issues.filter(issue => {
+      return (
+        !issue.labels.filter(label => {
+          return label.name === config.excludeLabel;
+        }).length > 0
+      );
+    });
+  } catch (err) {
+    console.error('An error occured getting issues' + err.stack);
+  }
 }
 
 module.exports = issues;
