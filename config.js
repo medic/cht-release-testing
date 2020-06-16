@@ -19,6 +19,8 @@ var columnData = {
   }
 }
 
+const assignees = ['newtewt', 'ngaruko','brad1905']
+
 function getToken() {
   if(!fs.existsSync('token.json')){
     throw new Error('The token.json file is not in this project directory.\n' +
@@ -37,5 +39,6 @@ module.exports = {
   headers: {
     'User-Agent': 'medic-qa',
     'Accept': 'application/vnd.github.inertia-preview+json'
-  }
+  },
+  assignees: assignees
 }
