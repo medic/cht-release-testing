@@ -22,12 +22,14 @@ async function createProjectAddColumnsAndIssues() {
 
   try{
     projects.reOrderColumns(config.columnNamesData);
-    var issuesData = await issues();
+    var issuesData = await issues.issues();
     var issueIds = issuesData.map(x => x.id);
+    const issueNumbers = await issuesData.map(x => x.number);
+    issues.clearAssignee(config.owner, config.repoName, issueNumbers, config.assignees);
     await projects.addIssuesToColumn(config.columnNamesData.toDo.columnId, issueIds);
     console.log("Project created at: " + projectResponse.data.html_url);
   } catch(err){
-    erconsole.error(err.stack);
+    console.error(err.stack);
   }
 }
 

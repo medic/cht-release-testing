@@ -27,4 +27,20 @@ async function issues() {
   };
 }
 
-module.exports = issues;
+function clearAssignee(owner, repo, issueIds, assignees) {
+  console.log(issueIds);
+  let data = {
+    owner: owner, 
+    repo: repo, 
+    assignees:  assignees
+  };
+  issueIds.forEach(num => {
+    data.number = num;
+    octokit.issues.removeAssignees(data);
+  })  
+}
+
+module.exports = {
+  issues: issues,
+  clearAssignee: clearAssignee
+};
