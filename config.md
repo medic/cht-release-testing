@@ -16,3 +16,11 @@ Runs on instace https://gamma-cht.dev.medicmobile.org/
 Repo is https://github.com/medic/cht-core/tree/master/config/default
 
 
+## BRAC Partner Config  
+
+Runs on instance https://gamma-b.dev.medicmobile.org
+
+Repo is https://github.com/medic/config-brac
+
+
+
