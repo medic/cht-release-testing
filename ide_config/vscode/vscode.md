@@ -1,9 +1,9 @@
 ## Setting up Vscode for e2e debugging. 
 
-1. This assumes you have gone through the (devekopment)[https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md] setup guide. 
+1. This assumes you have gone through the [development](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) setup guide. 
 1. Open a terminal to cht-core repo.
 1. Create a symlink to the vscode folder here to your cht-core repo. This will allow us to use git to manage any potential changes we need to share in this repo.
-    EX:  ln -s /home/user_name/dev/medic-release-testing/ide_config/vscode/ /home/user_name/dev/cht-core/.vscode
+    EX:  `ln -s /home/user_name/dev/medic-release-testing/ide_config/vscode/ /home/user_name/dev/cht-core/.vscode`
 
 1. Click the debug icon on the left tool bar.
 1. Select launch e2e
@@ -20,7 +20,9 @@
 1. You should now see the tests defined in that spec run. 
 
 
-## Debugging a single test by using grep. 
+## Debugging a single test by using grep.
+
+Note: When we upgrade to newest protractor this will change because of jasmine upgrade.
 
 1. Open launch.json
 1. Add grep argument with the name of your test to the args array. Note: if you have defined specs or suites that do not include the spec.js. It will not find the test to run.  
@@ -37,7 +39,7 @@ Using async/await in tests allows us to debug the tests as they execute code. In
 Here's an example of how to use it on our login function in conf.js. Placing a breakpoint at any of the await lines will pause execution at that point. Clicking the continue button will execute the action and then move to the next breakpoint or continue. 
 
 
-```
+``` javascript
   const login = async (browser) => {
   await browser.driver.get(getLoginUrl());
   await browser.driver.findElement(by.name('user')).sendKeys(auth.username);
