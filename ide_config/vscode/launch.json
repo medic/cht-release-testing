@@ -10,7 +10,7 @@
       "name": "Launch e2e",
       "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
       "cwd": "${workspaceFolder}/tests",
-      "args": ["${workspaceRoot}/tests/conf.js","--grep=should show the correct privacy policy on login", "--verbose"],
+      "args": ["${workspaceRoot}/tests/conf.js"],
       "sourceMaps": true,
       "outFiles": [ "${workspaceRoot}/e2e/**/*.js" ],
       "smartStep": true,

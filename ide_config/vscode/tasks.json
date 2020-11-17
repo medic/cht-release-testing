@@ -29,7 +29,7 @@
     },
     {
       "type": "shell",
-      "command": "grunt e2e-deploy",
+      "command": "grunt start-webdriver exec:clean-test-database exec:setup-test-database couch-push:test",
       "label": "grunt-deploy"
     }
   ]
