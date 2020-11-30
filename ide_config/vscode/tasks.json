@@ -1,0 +1,36 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "node scripts/e2e/e2e-servers",
+      "label": "e2e-deploy",
+      "dependsOn":["grunt-deploy"],
+      "isBackground": true,
+      "problemMatcher":{
+        "owner": "node",
+        "fileLocation": "relative",
+        "pattern": {
+          "regexp": "^([^\\s].*)\\((\\d+|\\d+,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "location": 2,
+          "severity": 3,
+          "code": 4,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^API / Sentinel service port listening on",
+          "endsPattern": "^API / Sentinel service port listening on"
+        }
+      }
+    },
+    {
+      "type": "shell",
+      "command": "grunt start-webdriver exec:clean-test-database exec:setup-test-database couch-push:test",
+      "label": "grunt-deploy"
+    }
+  ]
+}
