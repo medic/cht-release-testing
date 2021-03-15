@@ -14,7 +14,7 @@ As functionality is added to the app we should be adding release tests to ensure
 ## Generating a Project Board for Testing a Release
 
 
-Create a github personal access token and name it token.json in this directory. The only require permission is `public_repo Access public repositories`
+Create a github personal access token and name it token.json in this directory. The only required permission is `public_repo Access public repositories`
 
 Run `npm install`
 
