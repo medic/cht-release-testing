@@ -25,7 +25,7 @@ function getToken() {
   if(!fs.existsSync('token.json')){
     throw new Error('The token.json file is not in this project directory.\n' +
     'Create a personal access token and place it in this directory. \n' +
-    'See https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/ for generating a token \n');
+    'See https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/ for generating a token \n'); 
   }
   return JSON.parse(fs.readFileSync('token.json', 'utf8')).token
 }
