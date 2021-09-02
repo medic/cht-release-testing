@@ -3,9 +3,8 @@ const config = require('./config'),
 
 
 const removeExcludedLabels = (issues) => {
-  return issues.filter(issue => {
-    return !issue.labels.some(label => config.excludeLabels.includes(label.name.toLocaleLowerCase()));
-  })
+  const lowerLabels = config.excludeLabels.map(label => label.toLowerCase())
+  return issues.filter(issue => !issue.labels.some(label => lowerLabels.includes(label.name.toLowerCase())))
 };
 async function issues() {
   octokit.authenticate({
