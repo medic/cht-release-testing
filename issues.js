@@ -1,6 +1,11 @@
 const config = require('./config'),
   octokit = require('@octokit/rest')({ headers: config.headers });
 
+
+const removeExcludedLabels = (issues) => {
+  const lowerLabels = config.excludeLabels.map(label => label.toLowerCase())
+  return issues.filter(issue => !issue.labels.some(label => lowerLabels.includes(label.name.toLowerCase())))
+};
 async function issues() {
   octokit.authenticate({
     type: 'token',
@@ -15,14 +20,14 @@ async function issues() {
   issues = []
 
   try {
-    var response =  await octokit.issues.listForRepo(data);
+    var response = await octokit.issues.listForRepo(data);
     issues.push.apply(issues, response.data);
-    while(octokit.hasNextPage(response)){
+    while (octokit.hasNextPage(response)) {
       response = await octokit.getNextPage(response)
       issues.push.apply(issues, response.data);
     }
-    return issues;
-  } catch(err){
+    return removeExcludedLabels(issues);
+  } catch (err) {
     console.error("An error occured getting issues" + err.stack);
   };
 }
@@ -30,14 +35,14 @@ async function issues() {
 function clearAssignee(owner, repo, issueIds, assignees) {
   console.log(issueIds);
   let data = {
-    owner: owner, 
-    repo: repo, 
-    assignees:  assignees
+    owner: owner,
+    repo: repo,
+    assignees: assignees
   };
   issueIds.forEach(num => {
     data.number = num;
     octokit.issues.removeAssignees(data);
-  })  
+  })
 }
 
 module.exports = {

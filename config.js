@@ -33,7 +33,8 @@ function getToken() {
 module.exports = {
   repoName: 'medic-release-testing',
   owner: 'medic',
-  labels: "Release Test",
+  labels: 'Release Test',
+  excludeLabels: ['automated','no automation','retired config'],
   columnNamesData: columnData,
   token: getToken(),
   headers: {
