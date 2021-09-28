@@ -23,7 +23,7 @@ then
   echo "See details here https://git.io/fjtSf"
 fi
 
-medic-conf fetch-csvs-from-google-drive
-medic-conf csv-to-docs
-medic-conf $instance_name upload-docs
-medic-conf $instance_name  create-users
+cht fetch-csvs-from-google-drive
+cht csv-to-docs
+cht $instance_name upload-docs
+cht $instance_name  create-users
