@@ -3,7 +3,7 @@
 1. This assumes you have gone through the [development](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) setup guide. 
 1. Open a terminal to cht-core repo.
 1. Create a symlink to the vscode folder here to your cht-core repo. This will allow us to use git to manage any potential changes we need to share in this repo.
-    EX:  `ln -s /home/user_name/dev/medic-release-testing/ide_config/vscode/ /home/user_name/dev/cht-core/.vscode`
+    EX:  `ln -s /home/user_name/dev/cht-release-testing/ide_config/vscode/ /home/user_name/dev/cht-core/.vscode`
 
 1. Click the debug icon on the left tool bar.
 1. Select launch e2e
