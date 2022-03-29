@@ -31,7 +31,7 @@ function getToken() {
 }
 
 module.exports = {
-  repoName: 'medic-release-testing',
+  repoName: 'cht-release-testing',
   owner: 'medic',
   labels: 'Release Test',
   excludeLabels: ['automated','no automation','retired config'],
